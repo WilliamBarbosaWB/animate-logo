@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             path,
             { fill: "none" }, 
             {
-              fill: path.classList.contains("st0") ? "#F29402" : "#0B567F", 
+              fill: path.classList.contains("st0") ? "#ffffff" : "#002198", 
               duration: 2, 
               delay: index * 0.5, 
               repeat: -1, 
