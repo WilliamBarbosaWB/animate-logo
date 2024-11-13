@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup ao Sair</title>
+
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+    *{
+        font-family: "Sora", serif;
+    }
+
+    #exit-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #002198;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #popup-content {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      color: black;
+      max-width: 400px;
+      width: 90%;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    #google-auth-button {
+      background-color: #5192f9;
+      color: white;
+      padding: 10px 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-top: 15px;
+      width: 100%;
+      color:  #ffffff;
+    }
+
+    #google-auth-button img {
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    #google-auth-button:hover {
+      background-color: #357ae8;
+    }
+
+    body {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="exit-popup">
+    <div id="popup-content">
+      <p>Nas próximas sessões, gostaria de Autenticar via Google?</p>
+      <button id="google-auth-button">
+        <img src="./assets/google-svgrepo-com.svg" 
+             alt="Google Logo" style="width: 20px;" />
+        Autenticar via Google
+      </button>
+      
+    </div>
+  </div>
+
+  <script>
+    // Exibe o popup
+    function showExitPopup() {
+      document.getElementById("exit-popup").style.display = "flex";
+    }
+
+    // Adiciona evento ao tentar fechar a página
+    document.addEventListener("mouseleave", (event) => {
+      if (event.clientY <= 0) {
+        showExitPopup(); // Exibe o popup se o mouse sair pela parte superior
+      }
+    });
+
+    // Remove o comportamento padrão de fechar o navegador
+    window.addEventListener("beforeunload", (event) => {
+      event.preventDefault();
+      showExitPopup(); // Garante que o popup seja exibido
+      return (event.returnValue = ""); // Mensagem padrão em navegadores antigos
+    });
+
+    // Funcionalidade do botão Google (exemplo)
+    const googleAuthButton = document.getElementById("google-auth-button");
+    googleAuthButton.addEventListener("click", () => {
+      alert("Autenticando via Google..."); // Aqui você pode adicionar a lógica real
+      document.getElementById("exit-popup").style.display = "none"; // Fecha o popup
+    });
+  </script>
+</body>
+</html>

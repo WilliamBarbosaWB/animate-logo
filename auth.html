@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>Texto Autenticando</title>
+  
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+    *{
+        font-family: "Sora", serif;
+    }
+
+
+    #authenticating-text {
+      font-size: 1.5rem;
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: 500;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    body {
+      background-color:#002198;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="authenticating-text" style="display: none;">Autenticando<span id="dots">...</span></div>
+
+  <script>
+    // Exibe o texto "Autenticando..." com animação
+    function showAuthenticatingText() {
+      document.getElementById("authenticating-text").style.display = "block";
+    }
+
+    // Simule a exibição do texto
+    showAuthenticatingText();
+  </script>
+</body>
+</html>
